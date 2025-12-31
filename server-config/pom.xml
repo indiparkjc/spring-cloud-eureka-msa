@@ -18,6 +18,11 @@
     <description>Spring Cloud Config Server Module</description>
 
     <dependencies>
+        <!-- 💡 Eureka 서버에 자신을 등록하기 위한 클라이언트 의존성입니다. 💡 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!-- Spring Cloud Config Server 의존성: 이 모듈을 Config Server로 만듭니다. -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
