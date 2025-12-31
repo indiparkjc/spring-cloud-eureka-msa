@@ -34,6 +34,9 @@ target/*.log
 #.env.test.local
 #.env.production.local
 
+# Application variables
+application-*.yml
+
 # Operating System Files
 .DS_Store # macOS
 Thumbs.db # Windows

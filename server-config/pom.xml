@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 상위 루트 pom.xml을 바라보도록 설정 -->
+    <parent>
+        <groupId>com.msa</groupId>
+        <artifactId>spring-cloud-eureka-msa</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>server-config</artifactId> <!-- 이 모듈의 이름 (아저씨가 지정한 접두사 사용) -->
+    <packaging>jar</packaging>             <!-- 이 모듈은 실행 가능한 JAR 파일을 생성합니다. -->
+
+    <name>server-config</name>
+    <description>Spring Cloud Config Server Module</description>
+
+    <dependencies>
+        <!-- Spring Cloud Config Server 의존성: 이 모듈을 Config Server로 만듭니다. -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+
+        <!-- Spring Boot WebFlux Starter: HTTP 요청 처리를 위한 반응형 웹 스택 -->
+        <!-- 아저씨의 WebFlux 경험을 고려하여 포함했습니다. 필요시 'spring-boot-starter-web'으로 변경 가능합니다. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Actuator: 애플리케이션 모니터링 및 관리를 위한 엔드포인트 제공 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Test Starter: 테스트를 위한 의존성 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering> <!-- 리소스 필터링 활성화 -->
+            </resource>
+        </resources>
+        <plugins>
+            <!-- Spring Boot Maven Plugin: 애플리케이션을 실행 가능한 JAR로 패키징합니다. -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 버전은 루트 pom.xml의 pluginManagement에서 이미 관리됩니다. -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

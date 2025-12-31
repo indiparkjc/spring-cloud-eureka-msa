@@ -1,0 +1,35 @@
+server:
+  port: 8888 # Config Server는 일반적으로 8888 포트를 사용합니다.
+
+spring:
+  application:
+    name: config-server
+#  profiles:
+#    active: native
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/username/repository # Git URL
+          search-paths: config/ # <--- 디렉토리에서 설정을 찾도록 지시합니다.
+          # default-label: main # Config 리포지토리의 기본 브랜치 이름
+          # username: (Private 리포지토리인 경우, GitHub 계정 이름 또는 환경 변수 사용)
+          # password: (Private 리포지토리인 경우, GitHub Personal Access Token (PAT) 또는 환경 변수 사용)
+          # strict-host-key-checking: false # GitHub Enterprise 등 SSL 인증서 문제가 발생할 경우 사용할 수 있으나, 일반적으로는 보안상 비활성화하는 것이 좋습니다.
+          # clone-on-start: true # 서버 시작 시 Git 리포지토리를 로컬에 클론 (성능이나 네트워크 지연에 따라 고려)
+#        native: # Native (로컬 파일 시스템) 기반 설정 (주석 처리)
+          # Config Server를 Git 리포지토리 없이 로컬 파일 시스템에서 설정 파일을 읽도록 할 때 사용합니다.
+          # 이 기능을 활성화하려면 spring.profiles.active=native 를 설정해야 합니다.
+          # 예시:
+          # search-locations:
+          # - file:///var/config-repo
+          # - file:./configs # 현재 실행 위치의 configs 폴더에서 찾음
+
+management: # Actuator 엔드포인트 설정 (루트 application.yml 공통 설정보다 여기서 더 상세히 정의할 수 있습니다.)
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 모든 Actuator 엔드포인트를 웹으로 노출 (개발 환경에서 유용)
+  endpoint:
+    health:
+      show-details: always # 헬스체크 상세 정보를 항상 표시
