@@ -8,9 +8,9 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/username/repository # Git URL
-          search-paths: config/ # <--- 디렉토리에서 설정을 찾도록 지시합니다.
+#        git:
+#          uri: https://github.com/username/repository # Git URL
+#          search-paths: config/ # <--- 디렉토리에서 설정을 찾도록 지시합니다.
           # default-label: main # Config 리포지토리의 기본 브랜치 이름
           # username: (Private 리포지토리인 경우, GitHub 계정 이름 또는 환경 변수 사용)
           # password: (Private 리포지토리인 경우, GitHub Personal Access Token (PAT) 또는 환경 변수 사용)
