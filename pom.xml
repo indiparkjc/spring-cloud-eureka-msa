@@ -15,7 +15,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <spring-boot.version>3.5.9</spring-boot.version>
+        <spring-boot.version>4.0.1</spring-boot.version>
         <spring-cloud.version>2025.1.0</spring-cloud.version>
         <lombok.version>1.18.32</lombok.version>
         <jjwt.version>0.13.0</jjwt.version>
@@ -26,6 +26,7 @@
 
     <modules>
         <!-- 각 서비스 모듈들이 여기에 추가될 예정입니다. -->
+        <module>server-config</module>
     </modules>
 
     <dependencyManagement>
@@ -48,6 +49,12 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- 모든 서브 모듈에 상속될 공통 의존성 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+            </dependency>
+
             <!-- Lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -58,19 +65,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-        <!-- 모든 서브 모듈에 상속될 공통 의존성 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
+
 
     <build>
         <pluginManagement>
