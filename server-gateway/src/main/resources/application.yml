@@ -1,5 +1,7 @@
 spring:
   application:
-    name: discovery-server
+    name: gateway-server
+  profiles:
+    active: @spring.profiles.active@
   config:
     import: "optional:configserver:http://localhost:8888"

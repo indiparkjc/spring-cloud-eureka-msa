@@ -11,9 +11,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>server-config</artifactId> <!-- 이 모듈의 이름 (아저씨가 지정한 접두사 사용) -->
-    <packaging>jar</packaging>             <!-- 이 모듈은 실행 가능한 JAR 파일을 생성합니다. -->
-
+    <artifactId>server-config</artifactId>
     <name>server-config</name>
     <description>Spring Cloud Config Server Module</description>
 
